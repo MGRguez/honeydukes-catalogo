@@ -1,0 +1,516 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#7b1e2b" />
+  <title>Honeydukes | Catálogo mágico</title>
+  <meta name="description" content="Catálogo informativo de Honeydukes: Ranas de Chocolate, dulces mágicos, Raspa y Gana y Ruleta Mágica." />
+  <style>
+    :root{
+      --bg:#fff8f1;
+      --paper:#fffdf9;
+      --ink:#3c2630;
+      --muted:#7c646d;
+      --wine:#7b1e2b;
+      --wine-2:#9e3548;
+      --pink:#f7d8df;
+      --gold:#d8a63d;
+      --mint:#dff2e8;
+      --lav:#ece1f7;
+      --line:#ead8cf;
+      --shadow:0 14px 34px rgba(77, 36, 46, .11);
+      --radius:22px;
+    }
+
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      color:var(--ink);
+      background:
+        radial-gradient(circle at 10% 0%, rgba(247,216,223,.75), transparent 30%),
+        radial-gradient(circle at 100% 18%, rgba(223,242,232,.9), transparent 30%),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height:1.55;
+    }
+
+    a{color:inherit}
+    .wrap{width:min(1120px, calc(100% - 28px)); margin:auto}
+
+    .hero{
+      padding:54px 0 30px;
+      text-align:center;
+    }
+
+    .eyebrow{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 13px;
+      border-radius:999px;
+      background:#fff;
+      border:1px solid var(--line);
+      box-shadow:0 5px 18px rgba(67,32,41,.06);
+      font-weight:800;
+      font-size:.86rem;
+      letter-spacing:.04em;
+      text-transform:uppercase;
+    }
+
+    h1{
+      margin:18px auto 10px;
+      max-width:760px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size:clamp(2.6rem, 7vw, 5.6rem);
+      line-height:.94;
+      color:var(--wine);
+    }
+
+    .hero p{
+      max-width:700px;
+      margin:16px auto 0;
+      color:var(--muted);
+      font-size:clamp(1rem, 2.4vw, 1.18rem);
+    }
+
+    .hero-icons{
+      font-size:1.55rem;
+      letter-spacing:.2rem;
+      margin-top:20px;
+    }
+
+    .nav{
+      position:sticky;
+      top:0;
+      z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(255,248,241,.88);
+      border-top:1px solid rgba(234,216,207,.7);
+      border-bottom:1px solid rgba(234,216,207,.9);
+    }
+
+    .nav-inner{
+      display:flex;
+      gap:8px;
+      overflow-x:auto;
+      padding:10px 0;
+      scrollbar-width:none;
+    }
+    .nav-inner::-webkit-scrollbar{display:none}
+    .nav a{
+      text-decoration:none;
+      white-space:nowrap;
+      padding:9px 13px;
+      border-radius:999px;
+      font-size:.9rem;
+      font-weight:800;
+      background:#fff;
+      border:1px solid var(--line);
+    }
+    .nav a:hover{border-color:#cfaeb7; color:var(--wine)}
+
+    section{padding:48px 0 6px}
+    .section-head{
+      display:flex;
+      justify-content:space-between;
+      gap:18px;
+      align-items:end;
+      margin-bottom:20px;
+    }
+    .section-kicker{
+      display:block;
+      font-weight:900;
+      color:var(--wine-2);
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      font-size:.78rem;
+      margin-bottom:4px;
+    }
+    h2{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:clamp(2rem, 5vw, 3.1rem);
+      line-height:1.05;
+      margin:0;
+      color:var(--wine);
+    }
+    .section-note{
+      max-width:440px;
+      color:var(--muted);
+      margin:0;
+      font-size:.96rem;
+    }
+
+    .feature{
+      display:grid;
+      grid-template-columns:1.05fr .95fr;
+      gap:22px;
+      background:linear-gradient(135deg,#fff,#fff4f6);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:26px;
+      overflow:hidden;
+    }
+
+    .feature-visual{
+      min-height:270px;
+      border-radius:18px;
+      background:
+        radial-gradient(circle at 50% 35%, #fff8d9 0 14%, transparent 15%),
+        linear-gradient(135deg,#6c1726,#a9485b);
+      display:grid;
+      place-items:center;
+      text-align:center;
+      color:white;
+      padding:22px;
+      position:relative;
+    }
+    .feature-visual::before,
+    .feature-visual::after{
+      content:"✦";
+      position:absolute;
+      font-size:2rem;
+      opacity:.65;
+    }
+    .feature-visual::before{top:20px; left:24px}
+    .feature-visual::after{right:28px; bottom:18px}
+    .frog{
+      font-size:6rem;
+      filter:drop-shadow(0 12px 12px rgba(0,0,0,.16));
+    }
+    .feature-visual strong{
+      display:block;
+      margin-top:8px;
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.45rem;
+    }
+
+    .price{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#fff1bf;
+      color:#634714;
+      font-weight:900;
+      margin:10px 0 16px;
+    }
+
+    .feature ul{
+      padding-left:1.15rem;
+      margin:14px 0;
+    }
+    .feature li{margin:.5rem 0}
+
+    .warning{
+      margin-top:16px;
+      padding:13px 15px;
+      border-radius:14px;
+      background:#fff4dc;
+      border:1px solid #f0d79d;
+      color:#6d5224;
+      font-size:.92rem;
+      font-weight:700;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+    }
+    .card{
+      background:var(--paper);
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:18px;
+      min-height:150px;
+      box-shadow:0 8px 22px rgba(76,36,47,.065);
+      transition:transform .2s ease, box-shadow .2s ease;
+    }
+    .card:hover{
+      transform:translateY(-3px);
+      box-shadow:0 13px 26px rgba(76,36,47,.1);
+    }
+    .card .emoji{font-size:2rem}
+    .card h3{
+      margin:10px 0 5px;
+      font-size:1rem;
+      line-height:1.2;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:.91rem;
+    }
+    .tag{
+      display:inline-block;
+      margin-top:11px;
+      font-weight:900;
+      font-size:.82rem;
+      padding:5px 9px;
+      border-radius:999px;
+      background:var(--mint);
+    }
+
+    .games{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+    .game{
+      border-radius:var(--radius);
+      padding:24px;
+      border:1px solid var(--line);
+      box-shadow:var(--shadow);
+      background:#fff;
+    }
+    .game:nth-child(1){background:linear-gradient(135deg,#fff,#fdf0e5)}
+    .game:nth-child(2){background:linear-gradient(135deg,#fff,#f2ebfb)}
+    .game-icon{font-size:2.7rem}
+    .game h3{
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.7rem;
+      color:var(--wine);
+      margin:8px 0 10px;
+    }
+    .game .rule{
+      font-size:1.12rem;
+      font-weight:900;
+      margin:8px 0 12px;
+    }
+
+    .steps{
+      counter-reset:step;
+      display:grid;
+      grid-template-columns:repeat(4, minmax(0,1fr));
+      gap:14px;
+    }
+    .step{
+      position:relative;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:20px;
+      min-height:155px;
+    }
+    .step::before{
+      counter-increment:step;
+      content:counter(step);
+      display:grid;
+      place-items:center;
+      width:34px;
+      height:34px;
+      border-radius:50%;
+      background:var(--wine);
+      color:#fff;
+      font-weight:900;
+      margin-bottom:12px;
+    }
+    .step strong{display:block; margin-bottom:5px}
+    .step p{margin:0;color:var(--muted);font-size:.92rem}
+
+    .rules{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      padding:24px;
+      box-shadow:var(--shadow);
+    }
+    .rules ul{margin:0; padding-left:1.2rem}
+    .rules li{margin:.65rem 0}
+
+    .cta{
+      margin:52px 0 0;
+      padding:34px 22px;
+      border-radius:26px;
+      background:linear-gradient(135deg,var(--wine),#a33f52);
+      color:#fff;
+      text-align:center;
+      box-shadow:0 18px 40px rgba(90,24,37,.25);
+    }
+    .cta h2{color:#fff; margin-bottom:8px}
+    .cta p{margin:0 auto 18px; max-width:650px; color:#f9e9ed}
+    .cta a{
+      display:inline-flex;
+      justify-content:center;
+      align-items:center;
+      gap:9px;
+      padding:13px 18px;
+      border-radius:999px;
+      background:#fff;
+      color:var(--wine);
+      text-decoration:none;
+      font-weight:900;
+      border:2px solid #fff;
+    }
+
+    footer{
+      text-align:center;
+      padding:34px 0 42px;
+      color:var(--muted);
+      font-size:.88rem;
+    }
+
+    @media (max-width:860px){
+      .feature{grid-template-columns:1fr}
+      .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .section-head{display:block}
+      .section-note{margin-top:8px}
+    }
+
+    @media (max-width:540px){
+      .hero{padding-top:40px}
+      .wrap{width:min(100% - 20px,1120px)}
+      .grid{grid-template-columns:1fr 1fr; gap:10px}
+      .card{padding:14px; min-height:142px}
+      .games,.steps{grid-template-columns:1fr}
+      section{padding-top:38px}
+      .feature{padding:14px}
+      .feature-visual{min-height:220px}
+      .frog{font-size:5rem}
+      .cta{padding:28px 16px}
+    }
+  </style>
+</head>
+<body>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">🍭 Honeydukes • Catálogo mágico</span>
+      <h1>Un poquito de azúcar, magia y suerte.</h1>
+      <p>
+        Consulta aquí nuestros productos, precios y formas de participar.
+        Este catálogo es únicamente informativo.
+      </p>
+      <div class="hero-icons" aria-hidden="true">🍡 🍭 🍬 🍫</div>
+    </div>
+  </header>
+
+  <nav class="nav" aria-label="Secciones del catálogo">
+    <div class="wrap nav-inner">
+      <a href="#ranas">🐸 Ranas</a>
+      <a href="#dulces">🍬 Dulces</a>
+      <a href="#juegos">🎟️ Juegos</a>
+      </div>
+  </nav>
+
+  <main class="wrap">
+
+    <section id="ranas">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Producto especial</span>
+          <h2>🐸 Ranas de Chocolate</h2>
+        </div>
+        <p class="section-note">Una rana, un cromo y un pasito más para completar tu colección.</p>
+      </div>
+
+      <article class="feature">
+        <div class="feature-visual">
+          <div>
+            <div class="frog">🐸</div>
+            <strong>Rana de Chocolate</strong>
+            <span>+ 1 cromo coleccionable</span>
+          </div>
+        </div>
+
+        <div>
+          <span class="price">💰 400 Galeones c/u</span>
+          <h3 style="font-size:1.45rem;margin:0 0 8px;color:#7b1e2b;">¿Qué incluye?</h3>
+          <ul>
+            <li>🍫 1 Rana de Chocolate.</li>
+            <li>🎴 1 cromo coleccionable para tu álbum.</li>
+            <li>🛍️ Máximo 5 Ranas por alumno.</li>
+          </ul>
+          <div class="warning">
+            ⚠️ Las Ranas de Chocolate no participan en Raspa y Gana ni en la Ruleta Mágica.
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <section id="dulces">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Dulces mágicos & artículos varios</span>
+          <h2>🍬 Todo a 100 Galeones</h2>
+        </div>
+        <p class="section-note">Puedes combinar estos productos como quieras. Cada producto cuesta 100 G y sí cuenta para las participaciones mágicas.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card"><div class="emoji">🍥</div><h3>Paletas Ácidas</h3><p>Un clásico para valientes.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">🍬</div><h3>Grageas Bertie Bott</h3><p>Nunca sabes qué sabor te tocará.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">🍫</div><h3>Calderos de Chocolate</h3><p>Chocolate con encanto.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">🪶</div><h3>Plumas de Azúcar</h3><p>Dulces, ligeras y mágicas.</p><span class="tag">100 G</span></article>
+
+        <article class="card"><div class="emoji">🐸</div><h3>Sapos de Menta</h3><p>Frescos y encantados.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">🪱</div><h3>Babosas de Gelatina</h3><p>Más deliciosas de lo que parecen.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">💥</div><h3>Bombones Explosivos</h3><p>Una sorpresa con cada bocado.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">🚽</div><h3>Lord Kakadura</h3><p>Para quienes disfrutan el caos.</p><span class="tag">100 G</span></article>
+
+        <article class="card"><div class="emoji">👂🏼</div><h3>Orejas Extensibles</h3><p>La curiosidad también se compra.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">💘</div><h3>Poción de Amor</h3><p>Un detalle peligrosamente encantador.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">💧</div><h3>Amortentia</h3><p>Un aroma imposible de ignorar.</p><span class="tag">100 G</span></article>
+        <article class="card"><div class="emoji">💣</div><h3>Bombas Fétidas</h3><p>Para bromas con muy poco decoro.</p><span class="tag">100 G</span></article>
+
+        <article class="card"><div class="emoji">🧹</div><h3>Escobas Hechizadas</h3><p>Magia para llevar.</p><span class="tag">100 G</span></article>
+      </div>
+
+      <div class="warning" style="margin-top:16px; background:#f8eef8; border-color:#dfc6df; color:#65466a;">
+        🎁 <strong>¿Quieres enviarlo como regalo?</strong><br>
+        Puedes mandar cualquiera de estos dulces o artículos a otra persona. Solo indícanos a quién quieres enviárselo.
+      </div>
+    </section>
+
+    <section id="juegos">
+      <div class="section-head">
+        <div>
+          <span class="section-kicker">Pon a prueba tu suerte</span>
+          <h2>🎟️ Participaciones mágicas</h2>
+        </div>
+        <p class="section-note">Las participaciones se obtienen al comprar los productos de 100 G del catálogo. Las Ranas de Chocolate no participan.</p>
+      </div>
+
+      <div class="games">
+        <article class="game">
+          <div class="game-icon">🎟️</div>
+          <h3>Raspa y Gana</h3>
+          <div class="rule">Compra 2 productos de 100 G = 200 G = 1 participación</div>
+          <p>Con una compra de 200 Galeones en productos participantes obtienes 1 oportunidad en <strong>Raspa y Gana</strong>. Aquí encontrarás premios más pequeños, como puntos para tu casa, galeones y premios sorpresa.</p>
+        </article>
+
+        <article class="game">
+          <div class="game-icon">🎰</div>
+          <h3>Ruleta Mágica</h3>
+          <div class="rule">Compra 3 productos de 100 G = 300 G = 1 participación</div>
+          <p>Con una compra de 300 Galeones en productos participantes obtienes 1 oportunidad en la <strong>Ruleta Mágica</strong>. Aquí podrás encontrar premios más grandes, como puntos para tu casa, galeones y premios sorpresa.</p>
+        </article>
+      </div>
+
+
+      <div class="warning" style="margin-top:16px;">
+        🐸 Las Ranas de Chocolate no cuentan para completar los 200 G o 300 G de las participaciones mágicas.
+      </div>
+
+      <div class="warning" style="margin-top:16px;">
+        ⚠️ Participar no garantiza premio.
+      </div>
+    </section>
+
+
+
+  </main>
+
+  <footer>
+    <div class="wrap">
+      🍭 Honeydukes · Catálogo mágico
+    </div>
+  </footer>
+
+</body>
+</html>
