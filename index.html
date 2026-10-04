@@ -255,6 +255,67 @@
       background:var(--mint);
     }
 
+
+    .frog-types{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:18px;
+    }
+
+    .frog-card{
+      background:linear-gradient(135deg,#fff,#fff7f8);
+      border:1px solid var(--line);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+      padding:22px;
+    }
+
+    .frog-card.special{
+      background:linear-gradient(135deg,#fff,#f4fbf7);
+    }
+
+    .frog-card h3{
+      margin:8px 0 6px;
+      color:var(--wine);
+      font-family:Georgia, "Times New Roman", serif;
+      font-size:1.45rem;
+    }
+
+    .frog-card .frog-mini{
+      font-size:3rem;
+      line-height:1;
+    }
+
+    .frog-card ul{
+      padding-left:1.15rem;
+      margin:14px 0;
+    }
+
+    .frog-card li{margin:.5rem 0}
+
+    .badge-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:8px;
+      margin:10px 0 4px;
+    }
+
+    .mini-badge{
+      display:inline-flex;
+      align-items:center;
+      padding:6px 10px;
+      border-radius:999px;
+      font-size:.82rem;
+      font-weight:900;
+      background:#fff1bf;
+      color:#634714;
+    }
+
+    .mini-badge.green{
+      background:var(--mint);
+      color:#365b49;
+    }
+
     .games{
       display:grid;
       grid-template-columns:1fr 1fr;
@@ -367,7 +428,7 @@
       .wrap{width:min(100% - 20px,1120px)}
       .grid{grid-template-columns:1fr 1fr; gap:10px}
       .card{padding:14px; min-height:142px}
-      .games,.steps{grid-template-columns:1fr}
+      .games,.steps,.frog-types{grid-template-columns:1fr}
       section{padding-top:38px}
       .feature{padding:14px}
       .feature-visual{min-height:220px}
@@ -403,34 +464,61 @@
     <section id="ranas">
       <div class="section-head">
         <div>
-          <span class="section-kicker">Producto especial</span>
+          <span class="section-kicker">Colecciones del álbum</span>
           <h2>🐸 Ranas de Chocolate</h2>
         </div>
-        <p class="section-note">Una rana, un cromo y un pasito más para completar tu colección.</p>
+        <p class="section-note">Dos colecciones, dos formas de comprar y distintas reglas de participación.</p>
       </div>
 
-      <article class="feature">
-        <div class="feature-visual">
-          <div>
-            <div class="frog">🐸</div>
-            <strong>Rana de Chocolate</strong>
-            <span>+ 1 cromo coleccionable</span>
-          </div>
-        </div>
+      <div class="frog-types">
+        <article class="frog-card">
+          <div class="frog-mini">🐸🎴</div>
+          <span class="section-kicker" style="margin-top:12px;">Colección principal</span>
+          <h3>Brujos, brujas y magos famosos</h3>
 
-        <div>
-          <span class="price">💰 400 Galeones c/u</span>
-          <h3 style="font-size:1.45rem;margin:0 0 8px;color:#7b1e2b;">¿Qué incluye?</h3>
-          <ul>
-            <li>🍫 1 Rana de Chocolate.</li>
-            <li>🎴 1 cromo coleccionable para tu álbum.</li>
-            <li>🛍️ Máximo 5 Ranas por alumno.</li>
-          </ul>
-          <div class="warning">
-            ⚠️ Las Ranas de Chocolate no participan en Raspa y Gana ni en la Ruleta Mágica.
+          <div class="badge-row">
+            <span class="mini-badge">💰 400 G c/u</span>
+            <span class="mini-badge">🛍️ Máx. 5 al día</span>
           </div>
-        </div>
-      </article>
+
+          <p>La colección principal del álbum está formada por <strong>101 cromos</strong> de brujos, brujas y magos famosos.</p>
+
+          <ul>
+            <li>🍫 Cada Rana incluye 1 cromo de la colección principal.</li>
+            <li>🎴 Forma parte de los 101 cromos principales del álbum.</li>
+            <li>🛍️ Máximo 5 Ranas al día por alumno.</li>
+            <li>💰 Precio: 400 Galeones cada una.</li>
+          </ul>
+
+          <div class="warning">
+            ⚠️ Estas Ranas <strong>no participan</strong> en Raspa y Gana ni en la Ruleta Mágica.
+          </div>
+        </article>
+
+        <article class="frog-card special">
+          <div class="frog-mini">🐉✨</div>
+          <span class="section-kicker" style="margin-top:12px;">Continuación del álbum</span>
+          <h3>Seres, criaturas mágicas y especiales</h3>
+
+          <div class="badge-row">
+            <span class="mini-badge green">💰 100 G c/u</span>
+            <span class="mini-badge green">🛍️ Máx. 3 al día</span>
+          </div>
+
+          <p>Una colección complementaria para continuar el álbum con <strong>seres, criaturas mágicas y cromos especiales</strong>.</p>
+
+          <ul>
+            <li>🍫 Cada Rana incluye 1 cromo de esta colección especial.</li>
+            <li>✨ Es una continuación independiente de los 101 cromos principales.</li>
+            <li>🛍️ Máximo 3 Ranas al día por alumno.</li>
+            <li>💰 Precio: 100 Galeones cada una.</li>
+          </ul>
+
+          <div class="warning" style="background:#eef8f2;border-color:#cce6d6;color:#3f654f;">
+            🎟️ Estas Ranas <strong>sí cuentan como producto de 100 G</strong> y participan para completar los montos de Raspa y Gana o Ruleta Mágica.
+          </div>
+        </article>
+      </div>
     </section>
 
     <section id="dulces">
@@ -483,7 +571,7 @@
           <span class="section-kicker">Pon a prueba tu suerte</span>
           <h2>🎟️ Participaciones mágicas</h2>
         </div>
-        <p class="section-note">Las participaciones se obtienen al comprar los productos de 100 G del catálogo. Las Ranas de Chocolate no participan.</p>
+        <p class="section-note">Las participaciones se obtienen al comprar productos participantes de 100 G. Las Ranas de la colección especial sí participan; las Ranas de los 101 cromos principales no.</p>
       </div>
 
       <div class="games">
@@ -504,7 +592,7 @@
 
 
       <div class="warning" style="margin-top:16px;">
-        🐸 Las Ranas de Chocolate no cuentan para completar los 200 G o 300 G de las participaciones mágicas.
+        🐸 Las Ranas de <strong>brujos, brujas y magos famosos</strong> (400 G) no cuentan para completar los 200 G o 300 G. Las Ranas de <strong>seres, criaturas mágicas y especiales</strong> (100 G) sí cuentan.
       </div>
 
       <div class="warning" style="margin-top:16px;">
